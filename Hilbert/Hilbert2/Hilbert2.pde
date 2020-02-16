@@ -13,7 +13,7 @@ void setup() {
   img = loadImage("colorlights.jpg");
   background(0);
   //colorMode(HSB, 360, 255, 255);
-  order = 9;
+  order = 7;
   N = int(pow(2, order));
   total = N * N;
   path = new PVector[total];
@@ -44,7 +44,9 @@ void draw() {
   color pixelColor = img.pixels[pixelIndex];
   stroke(red(pixelColor), green(pixelColor), blue(pixelColor));
   line(path[i-1].x, path[i-1].y, path[i].x, path[i].y);
-
+  if(i % 10 == 0) {
+    saveFrame("output/7/frame_#####.png");
+  }
   i++;
 }
 
